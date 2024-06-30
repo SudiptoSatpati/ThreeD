@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar {
+  color: white;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 6rem;
+}
+
+.navbar > a {
+  text-decoration: none;
+  color: white;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-size: 1.2rem;
+}
+
+#explore-btn {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#explore-btn:hover {
+  color: #00ff83;
+  transform: scale(1.1);
+}
+
+#create-btn {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#create-btn:hover {
+  color: #00ff83;
+  transform: scale(1.1);
+}
+
+.title {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font-size: 1.7rem;
+  left: 50%;
+  top: 78%;
+  transform: translate(-50%, -25%);
+}
+
+.btn {
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  top: 85%;
+  left: 47%;
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: white;
+  box-shadow: 0.5rem 0.5rem 10px rgba(255, 255, 255, 0.5);
+}
+
+.details-group {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  padding: 0 8rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  align-items: center;
+}
+
+.details-group h2 {
+  color: #00ff83;
+}
+
+.details-shape {
+  top: 22%;
+}
+
+.details-light {
+  top: 30%;
+}
+
+.details-camera {
+  top: 40%;
+}
+
+.details-speed {
+  top: 50%;
+}
+
+.details-material {
+  top: 60%;
+}
+.details-skin {
+  top: 70%;
+}
+
+.details-bck {
+  top: 78%;
+}
+
+.explore {
+  z-index: 2;
+  position: absolute;
+  width: 15vw;
+  left: 80%;
+  top: 15%;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+}
+
+.explore ul {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.explore ul li {
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.explore ul li:hover {
+  color: #00ff83;
+}
+
+.explore ul li.selected {
+  background-color: #00ff83; /* Change this to your desired hover color */
+  color: black; /* Change text color if needed */
+}
+
+.create-btns {
+  z-index: 2;
+  position: absolute;
+  width: 10vw;
+  right: 4%;
+  top: 18%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+  opacity: 0;
+  transition: opacity 0.8s ease, max-height 0.5s ease;
+  pointer-events: none;
+}
+
+.create-btns.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.add-btn {
+  background-color: transparent;
+  color: #00ff83;
+  z-index: 2;
+  position: relative;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  width: 90%;
+  border: 2px solid white;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  color: white;
+  transform: scale(1.05);
+  border: 2px solid #00ff83;
+}
+
+.wire-btn.selected {
+  color: white;
+  transform: scale(0.9);
+  border: none;
+  box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+}
+
+.stars-btn.selected {
+  color: white;
+  transform: scale(0.9);
+  border: none;
+  box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+}
+
+.deep {
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  top: 87%;
+  right: 5%;
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.deep:hover {
+  color: white;
+  background-color: transparent;
+  box-shadow: 0.5rem 0.5rem 10px rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+}
+
+/* MEDIA QUERIESS */
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 1.3rem;
+    top: 88%;
+  }
+
+  .navbar {
+    padding: 2rem 1.5rem;
+  }
+
+  .navbar a {
+    font-size: 2rem;
+  }
+
+  .navbar ul {
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    top: 92%;
+    left: 37%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .deep {
+    top: 93%;
+    right: 4%;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .details-group {
+    color: white;
+    z-index: 2;
+    position: absolute;
+    padding: 0 1rem;
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.5rem;
+    align-items: center;
+  }
+
+  .details-group h2 {
+    color: #00ff83;
+  }
+
+  .details-shape {
+    top: 73%;
+  }
+
+  .details-light {
+    top: 75%;
+  }
+
+  .details-camera {
+    top: 77%;
+  }
+
+  .details-speed {
+    top: 79%;
+  }
+
+  .details-material {
+    top: 81%;
+  }
+  .details-skin {
+    top: 83%;
+  }
+
+  .details-bck {
+    top: 85%;
+  }
+  .explore {
+    z-index: 2;
+    position: absolute;
+    width: 35vw;
+    left: 50%;
+    top: 10%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+  }
+
+  .explore ul {
+    list-style-type: none;
+    padding: 0.6rem;
+  }
+
+  .explore ul li {
+    padding: 0.4rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+
+  .create-btns {
+    z-index: 2;
+    position: absolute;
+    width: 30vw;
+    right: 2%;
+    top: 9%;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+    opacity: 0;
+    transition: opacity 0.8s ease, max-height 0.5s ease;
+  }
+
+  .create-btns.show {
+    opacity: 1;
+  }
+
+  .add-btn {
+    background-color: transparent;
+    color: #00ff83;
+    z-index: 2;
+    position: relative;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    width: 90%;
+    border: 2px solid white;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  .add-btn:hover {
+    color: white;
+    transform: scale(1.05);
+    border: 2px solid #00ff83;
+  }
+
+  .wire-btn.selected {
+    color: white;
+    transform: scale(0.9);
+    border: none;
+    box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+  }
+
+  .stars-btn.selected {
+    color: white;
+    transform: scale(0.9);
+    border: none;
+    box-shadow: 3px 3px 40px rgba(0, 255, 131, 0.6);
+  }
+}
